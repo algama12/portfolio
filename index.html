@@ -116,6 +116,101 @@
             cursor: pointer;
         }
 
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .language-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: var(--gray-light);
+        }
+
+        .flag {
+            width: 24px;
+            height: 18px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .flag.es {
+            background: linear-gradient(to bottom, #c60b1e 33%, #ffc400 33%, #ffc400 66%, #c60b1e 66%);
+        }
+
+        .flag.en {
+            background: linear-gradient(45deg, #012169 25%, transparent 25%), 
+                        linear-gradient(-45deg, #012169 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #012169 75%), 
+                        linear-gradient(-45deg, transparent 75%, #012169 75%);
+            background-size: 8px 8px;
+            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+            background-color: #c8102e;
+            position: relative;
+        }
+
+        .flag.en::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(to bottom, transparent 40%, white 40%, white 60%, transparent 60%),
+                linear-gradient(to right, transparent 40%, white 40%, white 60%, transparent 60%);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem;
+            display: none;
+            z-index: 1001;
+            min-width: 120px;
+        }
+
+        .language-dropdown.active {
+            display: block;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .language-option:hover {
+            background: var(--gray-light);
+        }
+
+        .language-option.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
         /* Hero Section */
         .hero {
             background: var(--gradient);
@@ -717,6 +812,101 @@
             border-radius: 4px;
             font-size: 0.875rem;
         }
+
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .language-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: var(--gray-light);
+        }
+
+        .flag {
+            width: 24px;
+            height: 18px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .flag.es {
+            background: linear-gradient(to bottom, #c60b1e 33%, #ffc400 33%, #ffc400 66%, #c60b1e 66%);
+        }
+
+        .flag.en {
+            background: linear-gradient(45deg, #012169 25%, transparent 25%), 
+                        linear-gradient(-45deg, #012169 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #012169 75%), 
+                        linear-gradient(-45deg, transparent 75%, #012169 75%);
+            background-size: 8px 8px;
+            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+            background-color: #c8102e;
+            position: relative;
+        }
+
+        .flag.en::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(to bottom, transparent 40%, white 40%, white 60%, transparent 60%),
+                linear-gradient(to right, transparent 40%, white 40%, white 60%, transparent 60%);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem;
+            display: none;
+            z-index: 1001;
+            min-width: 120px;
+        }
+
+        .language-dropdown.active {
+            display: block;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .language-option:hover {
+            background: var(--gray-light);
+        }
+
+        .language-option.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
     </style>
 </head>
 <body>
@@ -726,14 +916,30 @@
             <div class="nav-container">
                 <a href="#" class="logo">&lt;/ÁlvaroGalet&gt;</a>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" data-es="Inicio" data-en="Home">Inicio</a></li>
+                    <li><a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+                    <li><a href="#experience" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+                    <li><a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+                    <li><a href="#education" data-es="Formación" data-en="Education">Formación</a></li>
+                    <li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="#contact" class="cta-button" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
+                <div class="language-selector">
+                    <button class="language-toggle" id="languageToggle">
+                        <span class="flag es" id="currentFlag"></span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="es">
+                            <span class="flag es"></span>
+                            <span>Español</span>
+                        </div>
+                        <div class="language-option" data-lang="en">
+                            <span class="flag en"></span>
+                            <span>English</span>
+                        </div>
+                    </div>
+                </div>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -746,23 +952,23 @@
         <div class="container">
             <div class="hero-content fade-in">
                 <h1 class="hero-title">Álvaro Galet Martín</h1>
-                <p class="hero-subtitle">PHP Developer | Symfony Specialist</p>
+                <p class="hero-subtitle" data-es="Desarrollador PHP | Especialista en Symfony" data-en="PHP Developer | Symfony Specialist">Desarrollador PHP | Especialista en Symfony</p>
                 <div class="hero-location">
                     <i class="fas fa-map-marker-alt"></i>
-                    Spain (Remote)
+                    <span data-es="España (Remoto)" data-en="Spain (Remote)">España (Remoto)</span>
                 </div>
-                <p class="hero-description">
-                    Backend developer with solid experience in PHP/Symfony, specializing in building scalable applications and RESTful APIs. 
-                    Passionate about clean code principles and framework-agnostic development.
+                <p class="hero-description" data-es="Desarrollador backend con sólida experiencia en PHP/Symfony, especializado en la construcción de aplicaciones escalables y APIs RESTful. Apasionado por los principios de código limpio y el desarrollo agnóstico de frameworks." data-en="Backend developer with solid experience in PHP/Symfony, specializing in building scalable applications and RESTful APIs. Passionate about clean code principles and framework-agnostic development.">
+                    Desarrollador backend con sólida experiencia en PHP/Symfony, especializado en la construcción de aplicaciones escalables y APIs RESTful. 
+                    Apasionado por los principios de código limpio y el desarrollo agnóstico de frameworks.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i>
-                        Get In Touch
+                        <span data-es="Contactar" data-en="Get In Touch">Contactar</span>
                     </a>
                     <a href="#projects" class="btn btn-secondary">
                         <i class="fas fa-code"></i>
-                        View My Work
+                        <span data-es="Ver mi trabajo" data-en="View My Work">Ver mi trabajo</span>
                     </a>
                 </div>
             </div>
@@ -772,34 +978,33 @@
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
+            <h2 class="section-title fade-in" data-es="Sobre mí" data-en="About Me">Sobre mí</h2>
             <div class="about-content">
                 <div class="about-image fade-in">
                     <div class="profile-card">
                         <div class="profile-avatar">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <h3>Professional Developer</h3>
-                        <p>Focused on delivering quality solutions</p>
+                        <h3 data-es="Desarrollador Profesional" data-en="Professional Developer">Desarrollador Profesional</h3>
+                        <p data-es="Enfocado en entregar soluciones de calidad" data-en="Focused on delivering quality solutions">Enfocado en entregar soluciones de calidad</p>
                     </div>
                 </div>
                 <div class="about-text fade-in">
-                    <p>
-                        I'm a dedicated <span class="highlight">Backend Developer</span> with a strong foundation in 
-                        <span class="highlight">PHP and Symfony</span>. My passion lies in creating scalable, 
-                        maintainable applications that deliver real business value while minimizing technical debt.
+                    <p data-es="Soy un <span class='highlight'>Desarrollador Backend</span> dedicado con una sólida base en <span class='highlight'>PHP y Symfony</span>. Mi pasión radica en crear aplicaciones escalables y mantenibles que aporten valor real al negocio mientras minimizan la deuda técnica." data-en="I'm a dedicated <span class='highlight'>Backend Developer</span> with a strong foundation in <span class='highlight'>PHP and Symfony</span>. My passion lies in creating scalable, maintainable applications that deliver real business value while minimizing technical debt.">
+                        Soy un <span class="highlight">Desarrollador Backend</span> dedicado con una sólida base en 
+                        <span class="highlight">PHP y Symfony</span>. Mi pasión radica en crear aplicaciones escalables y 
+                        mantenibles que aporten valor real al negocio mientras minimizan la deuda técnica.
                     </p>
-                    <p>
-                        With experience in building <span class="highlight">RESTful APIs</span> and implementing 
-                        <span class="highlight">clean architecture principles</span>, I focus on writing code that 
-                        is not only functional but also elegant and maintainable. I believe in the power of 
-                        <span class="highlight">SOLID principles</span> and <span class="highlight">Domain-Driven Design</span> 
-                        to create robust software solutions.
+                    <p data-es="Con experiencia en la construcción de <span class='highlight'>APIs RESTful</span> e implementación de <span class='highlight'>principios de arquitectura limpia</span>, me enfoco en escribir código que no solo sea funcional sino también elegante y mantenible. Creo en el poder de los <span class='highlight'>principios SOLID</span> para crear soluciones de software robustas." data-en="With experience in building <span class='highlight'>RESTful APIs</span> and implementing <span class='highlight'>clean architecture principles</span>, I focus on writing code that is not only functional but also elegant and maintainable. I believe in the power of <span class='highlight'>SOLID principles</span> to create robust software solutions.">
+                        Con experiencia en la construcción de <span class="highlight">APIs RESTful</span> e implementación de 
+                        <span class="highlight">principios de arquitectura limpia</span>, me enfoco en escribir código que 
+                        no solo sea funcional sino también elegante y mantenible. Creo en el poder de los 
+                        <span class="highlight">principios SOLID</span> para crear soluciones de software robustas.
                     </p>
-                    <p>
-                        Currently working remotely, I've developed strong collaboration skills and a commitment to 
-                        continuous learning. I'm always eager to tackle new challenges and contribute to innovative projects 
-                        that make a difference.
+                    <p data-es="Actualmente trabajando de forma remota, he desarrollado fuertes habilidades de colaboración y un compromiso con el aprendizaje continuo. Siempre estoy ansioso por abordar nuevos desafíos y contribuir a proyectos innovadores que marquen la diferencia." data-en="Currently working remotely, I've developed strong collaboration skills and a commitment to continuous learning. I'm always eager to tackle new challenges and contribute to innovative projects that make a difference.">
+                        Actualmente trabajando de forma remota, he desarrollado fuertes habilidades de colaboración y un compromiso con 
+                        el aprendizaje continuo. Siempre estoy ansioso por abordar nuevos desafíos y contribuir a proyectos innovadores 
+                        que marquen la diferencia.
                     </p>
                 </div>
             </div>
@@ -809,24 +1014,32 @@
     <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Professional Experience</h2>
+            <h2 class="section-title fade-in" data-es="Experiencia Profesional" data-en="Professional Experience">Experiencia Profesional</h2>
             <div class="experience-item fade-in">
                 <div class="experience-header">
                     <div>
-                        <h3 class="experience-title">Backend Developer</h3>
+                        <h3 class="experience-title" data-es="Desarrollador Backend" data-en="Backend Developer">Desarrollador Backend</h3>
                         <p class="experience-company">Gyoza Studio</p>
                     </div>
-                    <div class="experience-date">August 2023 - Present</div>
+                    <div class="experience-date" data-es="Agosto 2023 - Presente" data-en="August 2023 - Present">Agosto 2023 - Presente</div>
                 </div>
                 <div class="tech-stack">
                     <span class="tech-tag">PHP 8</span>
                     <span class="tech-tag">Symfony</span>
                     <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">RESTful APIs</span>
+                    <span class="tech-tag">APIs RESTful</span>
                     <span class="tech-tag">Git</span>
                 </div>
                 <div class="experience-description">
-                    <ul>
+                    <ul data-es="
+                        <li>Desarrollé y mantuve sistemas backend modulares usando PHP 8 y Symfony</li>
+                        <li>Implementé principios de arquitectura limpia enfocándome en la separación de lógica de negocio</li>
+                        <li>Construí APIs RESTful escalables para diversos requisitos de negocio</li>
+                        <li>Diseñé y optimicé estructuras de base de datos para mejorar el rendimiento</li>
+                        <li>Implementé sistemas de autenticación personalizados y lógica de negocio compleja</li>
+                        <li>Utilicé enfoques agnósticos de framework para la lógica de negocio central para asegurar la mantenibilidad</li>
+                        <li>Colaboré efectivamente en un entorno remoto usando Git para control de versiones</li>
+                    " data-en="
                         <li>Developed and maintained modular backend systems using PHP 8 and Symfony</li>
                         <li>Implemented clean architecture principles focusing on business logic separation</li>
                         <li>Built scalable RESTful APIs for various business requirements</li>
@@ -834,13 +1047,29 @@
                         <li>Implemented custom authentication systems and complex business logic</li>
                         <li>Used framework-agnostic approaches for core business logic to ensure maintainability</li>
                         <li>Collaborated effectively in a remote-first environment using Git for version control</li>
+                    ">
+                        <li>Desarrollé y mantuve sistemas backend modulares usando PHP 8 y Symfony</li>
+                        <li>Implementé principios de arquitectura limpia enfocándome en la separación de lógica de negocio</li>
+                        <li>Construí APIs RESTful escalables para diversos requisitos de negocio</li>
+                        <li>Diseñé y optimicé estructuras de base de datos para mejorar el rendimiento</li>
+                        <li>Implementé sistemas de autenticación personalizados y lógica de negocio compleja</li>
+                        <li>Utilicé enfoques agnósticos de framework para la lógica de negocio central para asegurar la mantenibilidad</li>
+                        <li>Colaboré efectivamente en un entorno remoto usando Git para control de versiones</li>
                     </ul>
                     <div class="achievements">
-                        <h4>Key Achievements:</h4>
-                        <ul>
+                        <h4 data-es="Logros Clave:" data-en="Key Achievements:">Logros Clave:</h4>
+                        <ul data-es="
+                            <li>Entregué exitosamente múltiples soluciones de API escalables</li>
+                            <li>Mejoré el rendimiento del sistema a través de optimización de consultas y arquitectura limpia</li>
+                            <li>Desarrollé un plugin personalizado de WordPress integrándolo con sistemas de negocio centrales</li>
+                        " data-en="
                             <li>Successfully delivered multiple scalable API solutions</li>
                             <li>Improved system performance through query optimization and clean architecture</li>
                             <li>Developed a custom WordPress plugin integrating with core business systems</li>
+                        ">
+                            <li>Entregué exitosamente múltiples soluciones de API escalables</li>
+                            <li>Mejoré el rendimiento del sistema a través de optimización de consultas y arquitectura limpia</li>
+                            <li>Desarrollé un plugin personalizado de WordPress integrándolo con sistemas de negocio centrales</li>
                         </ul>
                     </div>
                 </div>
@@ -851,39 +1080,39 @@
     <!-- Skills Section -->
     <section id="skills" class="section skills">
         <div class="container">
-            <h2 class="section-title fade-in">Technical Skills</h2>
+            <h2 class="section-title fade-in" data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-code"></i> Core Technologies</h3>
+                    <h3><i class="fas fa-code"></i> <span data-es="Tecnologías Principales" data-en="Core Technologies">Tecnologías Principales</span></h3>
                     <div class="skill-list">
                         <span class="skill-item">PHP 8.x</span>
                         <span class="skill-item">Symfony</span>
                         <span class="skill-item">Laravel</span>
                         <span class="skill-item">MySQL/SQL</span>
-                        <span class="skill-item">RESTful APIs</span>
+                        <span class="skill-item">APIs RESTful</span>
                         <span class="skill-item">Git/GitHub</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-cogs"></i> Development Practices</h3>
+                    <h3><i class="fas fa-cogs"></i> <span data-es="Prácticas de Desarrollo" data-en="Development Practices">Prácticas de Desarrollo</span></h3>
                     <div class="skill-list">
-                        <span class="skill-item">Clean Code</span>
-                        <span class="skill-item">SOLID Principles</span>
-                        <span class="skill-item">Domain-Driven Design</span>
-                        <span class="skill-item">Framework-agnostic Development</span>
-                        <span class="skill-item">Modular Architecture</span>
-                        <span class="skill-item">API Design</span>
+                        <span class="skill-item" data-es="Código Limpio" data-en="Clean Code">Código Limpio</span>
+                        <span class="skill-item" data-es="Principios SOLID" data-en="SOLID Principles">Principios SOLID</span>
+                        <span class="skill-item" data-es="Diseño Dirigido por Dominio" data-en="Domain-Driven Design">Diseño Dirigido por Dominio</span>
+                        <span class="skill-item" data-es="Desarrollo Agnóstico de Framework" data-en="Framework-agnostic Development">Desarrollo Agnóstico de Framework</span>
+                        <span class="skill-item" data-es="Arquitectura Modular" data-en="Modular Architecture">Arquitectura Modular</span>
+                        <span class="skill-item" data-es="Diseño de APIs" data-en="API Design">Diseño de APIs</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-tools"></i> Additional Skills</h3>
+                    <h3><i class="fas fa-tools"></i> <span data-es="Habilidades Adicionales" data-en="Additional Skills">Habilidades Adicionales</span></h3>
                     <div class="skill-list">
-                        <span class="skill-item">Object-Oriented Programming</span>
-                        <span class="skill-item">Database Design</span>
-                        <span class="skill-item">Performance Optimization</span>
-                        <span class="skill-item">Remote Collaboration</span>
-                        <span class="skill-item">Problem Solving</span>
-                        <span class="skill-item">Continuous Learning</span>
+                        <span class="skill-item" data-es="Programación Orientada a Objetos" data-en="Object-Oriented Programming">Programación Orientada a Objetos</span>
+                        <span class="skill-item" data-es="Diseño de Base de Datos" data-en="Database Design">Diseño de Base de Datos</span>
+                        <span class="skill-item" data-es="Optimización de Rendimiento" data-en="Performance Optimization">Optimización de Rendimiento</span>
+                        <span class="skill-item" data-es="Colaboración Remota" data-en="Remote Collaboration">Colaboración Remota</span>
+                        <span class="skill-item" data-es="Resolución de Problemas" data-en="Problem Solving">Resolución de Problemas</span>
+                        <span class="skill-item" data-es="Aprendizaje Continuo" data-en="Continuous Learning">Aprendizaje Continuo</span>
                     </div>
                 </div>
             </div>
@@ -893,31 +1122,53 @@
     <!-- Education & Certifications -->
     <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Education & Certifications</h2>
+            <h2 class="section-title fade-in" data-es="Formación y Certificaciones" data-en="Education & Certifications">Formación y Certificaciones</h2>
             <div class="education-grid">
                 <div class="education-card fade-in">
-                    <h3>Cross-Platform Application Development</h3>
+                    <h3 data-es="Desarrollo de Aplicaciones Multiplataforma" data-en="Cross-Platform Application Development">Desarrollo de Aplicaciones Multiplataforma</h3>
                     <p class="institution">I.E.S. Pablo Picasso | Centro de Estudios Óptima</p>
                     <p class="date">2021 - 2023</p>
                     <div class="coursework">
-                        <h4>Relevant Coursework:</h4>
-                        <ul>
+                        <h4 data-es="Materias Relevantes:" data-en="Relevant Coursework:">Materias Relevantes:</h4>
+                        <ul data-es="
+                            <li>Programación Avanzada en PHP</li>
+                            <li>Arquitectura de Software</li>
+                            <li>Diseño de Base de Datos</li>
+                            <li>Desarrollo Web</li>
+                            <li>Programación Orientada a Objetos</li>
+                        " data-en="
                             <li>Advanced PHP Programming</li>
                             <li>Software Architecture</li>
                             <li>Database Design</li>
                             <li>Web Development</li>
                             <li>Object-Oriented Programming</li>
+                        ">
+                            <li>Programación Avanzada en PHP</li>
+                            <li>Arquitectura de Software</li>
+                            <li>Diseño de Base de Datos</li>
+                            <li>Desarrollo Web</li>
+                            <li>Programación Orientada a Objetos</li>
                         </ul>
                     </div>
                 </div>
                 <div class="education-card fade-in">
-                    <h3>Professional Certifications</h3>
+                    <h3 data-es="Certificaciones Profesionales" data-en="Professional Certifications">Certificaciones Profesionales</h3>
                     <div class="coursework">
-                        <ul>
+                        <ul data-es="
+                            <li>Desarrollo Armonioso con Symfony 6 (SymfonyCasts)</li>
+                            <li>Certificación PHP (OpenBootcamp)</li>
+                            <li>Certificación Git (OpenBootcamp)</li>
+                            <li>Fundamentos de Ciberseguridad</li>
+                        " data-en="
                             <li>Harmonious Development with Symfony 6 (SymfonyCasts)</li>
                             <li>PHP Certification (OpenBootcamp)</li>
                             <li>Git Certification (OpenBootcamp)</li>
                             <li>Cybersecurity Fundamentals</li>
+                        ">
+                            <li>Desarrollo Armonioso con Symfony 6 (SymfonyCasts)</li>
+                            <li>Certificación PHP (OpenBootcamp)</li>
+                            <li>Certificación Git (OpenBootcamp)</li>
+                            <li>Fundamentos de Ciberseguridad</li>
                         </ul>
                     </div>
                 </div>
@@ -928,27 +1179,24 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <p class="section-subtitle fade-in">Some of the projects I've worked on</p>
+            <h2 class="section-title fade-in" data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</h2>
+            <p class="section-subtitle fade-in" data-es="Algunos de los proyectos en los que he trabajado" data-en="Some of the projects I've worked on">Algunos de los proyectos en los que he trabajado</p>
             <div class="projects-grid">
                 <div class="project-card fade-in">
                     <div class="project-image">
                         <i class="fas fa-server"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Scalable API Solutions</h3>
-                        <p class="project-description">
-                            Developed multiple RESTful APIs using Symfony, implementing clean architecture 
-                            principles and optimized database queries for improved performance.
+                        <h3 class="project-title" data-es="Soluciones de API Escalables" data-en="Scalable API Solutions">Soluciones de API Escalables</h3>
+                        <p class="project-description" data-es="Desarrollé múltiples APIs RESTful usando Symfony, implementando principios de arquitectura limpia y consultas de base de datos optimizadas para mejorar el rendimiento." data-en="Developed multiple RESTful APIs using Symfony, implementing clean architecture principles and optimized database queries for improved performance.">
+                            Desarrollé múltiples APIs RESTful usando Symfony, implementando principios de arquitectura limpia 
+                            y consultas de base de datos optimizadas para mejorar el rendimiento.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">PHP 8</span>
                             <span class="tech-tag">Symfony</span>
                             <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">REST API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -957,19 +1205,16 @@
                         <i class="fab fa-wordpress"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Custom WordPress Plugin</h3>
-                        <p class="project-description">
-                            Created a custom WordPress plugin that integrates seamlessly with core business 
-                            systems, providing enhanced functionality and improved user experience.
+                        <h3 class="project-title" data-es="Plugin Personalizado de WordPress" data-en="Custom WordPress Plugin">Plugin Personalizado de WordPress</h3>
+                        <p class="project-description" data-es="Creé un plugin personalizado de WordPress que se integra perfectamente con los sistemas de negocio centrales, proporcionando funcionalidad mejorada y mejor experiencia de usuario." data-en="Created a custom WordPress plugin that integrates seamlessly with core business systems, providing enhanced functionality and improved user experience.">
+                            Creé un plugin personalizado de WordPress que se integra perfectamente con los sistemas de negocio centrales, 
+                            proporcionando funcionalidad mejorada y mejor experiencia de usuario.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">WordPress</span>
                             <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -978,19 +1223,16 @@
                         <i class="fas fa-database"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Database Optimization</h3>
-                        <p class="project-description">
-                            Optimized database structures and queries, resulting in significant performance 
-                            improvements and better scalability for high-traffic applications.
+                        <h3 class="project-title" data-es="Optimización de Base de Datos" data-en="Database Optimization">Optimización de Base de Datos</h3>
+                        <p class="project-description" data-es="Optimicé estructuras de base de datos y consultas, resultando en mejoras significativas de rendimiento y mejor escalabilidad para aplicaciones de alto tráfico." data-en="Optimized database structures and queries, resulting in significant performance improvements and better scalability for high-traffic applications.">
+                            Optimicé estructuras de base de datos y consultas, resultando en mejoras significativas de rendimiento 
+                            y mejor escalabilidad para aplicaciones de alto tráfico.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Query Optimization</span>
-                            <span class="tech-tag">Performance</span>
-                            <span class="tech-tag">Indexing</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
+                            <span class="tech-tag" data-es="Optimización de Consultas" data-en="Query Optimization">Optimización de Consultas</span>
+                            <span class="tech-tag" data-es="Rendimiento" data-en="Performance">Rendimiento</span>
+                            <span class="tech-tag" data-es="Indexación" data-en="Indexing">Indexación</span>
                         </div>
                     </div>
                 </div>
@@ -1002,25 +1244,27 @@
     <section id="contact" class="section contact">
         <div class="container">
             <div class="contact-content">
-                <h2 class="section-title fade-in" style="color: white;">Let's Work Together</h2>
-                <p class="section-subtitle fade-in" style="color: rgba(255,255,255,0.8);">
-                    I'm always interested in new opportunities and exciting projects
+                <h2 class="section-title fade-in" style="color: white;" data-es="Trabajemos Juntos" data-en="Let's Work Together">Trabajemos Juntos</h2>
+                <p class="section-subtitle fade-in" style="color: rgba(255,255,255,0.8);" data-es="Siempre estoy interesado en nuevas oportunidades y proyectos emocionantes" data-en="I'm always interested in new opportunities and exciting projects">
+                    Siempre estoy interesado en nuevas oportunidades y proyectos emocionantes
                 </p>
                 <div class="contact-info">
                     <div class="contact-item fade-in">
-                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:alvarogaletmartin@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                         <h3>Email</h3>
-                        <a href="mailto:alvarogaletmartin@gmail.com">alvarogaletmartin@gmail.com</a>
                     </div>
                     <div class="contact-item fade-in">
-                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/alvaro-galet-martin-966438189" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                         <h3>LinkedIn</h3>
-                        <a href="https://linkedin.com/in/alvaro-galet-martin-966438189" target="_blank">Connect with me</a>
                     </div>
                     <div class="contact-item fade-in">
                         <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Spain (Remote)</p>
+                        <h3 data-es="Ubicación" data-en="Location">Ubicación</h3>
+                        <p data-es="España (Remoto)" data-en="Spain (Remote)">España (Remoto)</p>
                     </div>
                 </div>
             </div>
@@ -1030,11 +1274,102 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Álvaro Galet Martín. Built with passion and clean code principles.</p>
+            <p data-es="&copy; 2024 Álvaro Galet Martín. Construido con pasión y principios de código limpio." data-en="&copy; 2024 Álvaro Galet Martín. Built with passion and clean code principles.">&copy; 2024 Álvaro Galet Martín. Construido con pasión y principios de código limpio.</p>
         </div>
     </footer>
 
     <script>
+        // Language system
+        const translations = {
+            es: {
+                // Navigation
+                'Inicio': 'Inicio',
+                'Sobre mí': 'Sobre mí',
+                'Experiencia': 'Experiencia',
+                'Habilidades': 'Habilidades',
+                'Formación': 'Formación',
+                'Proyectos': 'Proyectos',
+                'Contacto': 'Contacto'
+            },
+            en: {
+                // Navigation
+                'Inicio': 'Home',
+                'Sobre mí': 'About',
+                'Experiencia': 'Experience',
+                'Habilidades': 'Skills',
+                'Formación': 'Education',
+                'Proyectos': 'Projects',
+                'Contacto': 'Contact'
+            }
+        };
+
+        let currentLanguage = 'es'; // Default language
+
+        function initLanguage() {
+            // Check if language is stored in localStorage
+            const savedLanguage = localStorage.getItem('portfolio-language');
+            if (savedLanguage && (savedLanguage === 'es' || savedLanguage === 'en')) {
+                currentLanguage = savedLanguage;
+            }
+            
+            // Set initial language
+            changeLanguage(currentLanguage);
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('portfolio-language', lang);
+            
+            // Update flag
+            const currentFlag = document.getElementById('currentFlag');
+            currentFlag.className = `flag ${lang}`;
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-es][data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (element.tagName === 'UL') {
+                        element.innerHTML = text;
+                    } else {
+                        element.innerHTML = text;
+                    }
+                }
+            });
+            
+            // Update language dropdown active state
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        // Language selector functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguage();
+            
+            const languageToggle = document.getElementById('languageToggle');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            languageToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('active');
+            });
+            
+            document.addEventListener('click', function() {
+                languageDropdown.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                    languageDropdown.classList.remove('active');
+                });
+            });
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
